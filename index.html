@@ -1,4 +1,113 @@
-import React, { useState, useEffect } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#27ae60">
+  <meta name="description" content="One Stop Solution for Farming Expense Management">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Farm Manager">
+  
+  <title>Farm Manager - One Stop Solution for Farming Expense Management</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  
+  <!-- React from CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+    }
+    
+    #root {
+      height: 100vh;
+      width: 100vw;
+      overflow: auto;
+    }
+    
+    /* Loading screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      z-index: 9999;
+    }
+    
+    .loading-screen h1 {
+      font-size: 32px;
+      margin: 0 0 16px 0;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading">
+    <h1>🌾 Farm Manager</h1>
+    <div class="loading-spinner"></div>
+    <p style="margin-top: 16px; opacity: 0.9;">Loading...</p>
+  </div>
+  
+  <!-- React App Root -->
+  <div id="root"></div>
+  
+  <!-- Farm Manager React Application -->
+  <script type="text/babel">
+    // ============================================
+    // PASTE YOUR FARM-WAGE-APP-FINAL.JSX CODE HERE
+    // Copy everything from the farm-wage-app-FINAL.jsx file
+    // and paste it in this section
+    // ============================================
+    
+    // Your entire React component code goes here
+    // Make sure to include:
+    // - All imports
+    // - All state management
+    // - All functions
+    // - The complete FarmWageManager component
+    // - The ReactDOM.render at the end
+    import React, { useState, useEffect } from 'react';
 import { Plus, Users, Calendar, DollarSign, TrendingUp, Edit2, Trash2, Check, X, ChevronRight, ChevronLeft } from 'lucide-react';
 
 // Custom hook for localStorage persistence
@@ -6040,3 +6149,42 @@ function NavButton({ icon, label, active, onClick, isEmoji }) {
     </button>
   );
 }
+
+	
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    // Remove loading screen when app loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loading');
+        if (loadingScreen) {
+          loadingScreen.style.display = 'none';
+        }
+      }, 1000);
+    });
+    
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered successfully:', registration.scope);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+    
+    // Install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('App can be installed');
+    });
+  </script>
+</body>
+</html>

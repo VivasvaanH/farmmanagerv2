@@ -1,13 +1,43 @@
 {
-  "background_color": "#099688",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "vivasvaanh.github",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "vivasvaanh.github",
+  "name": "Farm Manager",
+  "short_name": "Farm Manager",
+  "description": "One Stop Solution for Farming Expense Management",
   "start_url": "/",
-  "theme_color": "#f8fafa",
-  "id": "com.farmmanager.app",
-  "description": "Farm Manager App"
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#27ae60",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "finance"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Attendance",
+      "short_name": "Attendance",
+      "description": "Mark worker attendance",
+      "url": "/?view=attendance",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Payments",
+      "short_name": "Payments",
+      "description": "Record payments",
+      "url": "/?view=payments",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
 }
