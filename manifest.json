@@ -1,11 +1,13 @@
 {
-  "name": "Farm Manager",
-  "short_name": "Farm Manager",
-  "description": "One Stop Solution for Farming Expense Management"
+  "background_color": "#099688",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "vivasvaanh.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "vivasvaanh.github",
+  "start_url": "/",
+  "theme_color": "#f8fafa",
+  "id": "com.farmmanager.app",
+  "description": "Farm Manager App"
 }
-```
-
-**When running `npx cap init`:**
-```
-App name: Farm Manager
-Package ID: com.farmmanager.app
